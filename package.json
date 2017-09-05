@@ -1,0 +1,31 @@
+{
+  "name": "music-meet",
+  "version": "1.0.0",
+  "description": "concert-based social media connection app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppreziotti/music-meet.git"
+  },
+  "author": "Patrick Preziotti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ppreziotti/music-meet/issues"
+  },
+  "homepage": "https://github.com/ppreziotti/music-meet#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "express-validator": "^4.1.1",
+    "mongoose": "^4.11.10",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
