@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Import the API and HTML routes
 // require('./routes/api-routes.js')(app);
-// require('./routes/html-routes.js')(app);
+require('./routes/html-routes.js')(app);
 
 app.listen(PORT, function() {
 	console.log("App listenting on PORT " + PORT + "!");

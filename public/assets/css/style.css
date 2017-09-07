@@ -2,3 +2,16 @@ body {
 	background-image: url('../images/concert.jpg');
 	background-size: cover;
 }
+
+#heading {
+	display: none;
+	font-family: 'Montserrat Subrayada', sans-serif;
+	font-size: 72px;
+	margin-bottom: 50px;
+	margin-top: 50px;
+	text-align: center;
+}
+h3 {
+	display: none;
+	text-align: center;
+}
