@@ -3,15 +3,23 @@ body {
 	background-size: cover;
 }
 
-#heading {
+#btn-login, #btn-signup {
+	display: none;
+}
+
+#index-container {
+	text-align: center;
+}
+
+#index-heading {
 	display: none;
 	font-family: 'Montserrat Subrayada', sans-serif;
 	font-size: 72px;
 	margin-bottom: 50px;
 	margin-top: 50px;
-	text-align: center;
 }
-h3 {
+
+#index-subheading {
 	display: none;
-	text-align: center;
+	margin-bottom: 50px;
 }

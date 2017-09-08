@@ -1,4 +1,6 @@
 $(document).ready(function() {
-	$("#heading").fadeIn(3000);
-	$("#h3").fadeIn(4000);
+	$("#index-heading").fadeIn(3000);
+	$("#index-subheading").fadeIn(4000);
+	$("#btn-login").fadeIn(5000);
+	$("#btn-signup").fadeIn(5000);
 });
