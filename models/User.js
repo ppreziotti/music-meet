@@ -1,3 +1,4 @@
+var bcrypt = require('bcrypt-nodejs');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -9,7 +10,7 @@ var UserSchema = new Schema({
 	},
 	email: {
 		type: String,
-		required: true,
+		// required: true,
 		unique: true
 	},
 	password: {
@@ -18,13 +19,23 @@ var UserSchema = new Schema({
 	},
 	location: {
 		type: String,
-		required: true
+		// required: true
 	},
 	favoriteArtists: {
 		type: Array,
-		required: true
+		// required: true
 	}
 });
+
+// Generating a hash for the user's password
+UserSchema.methods.generateHash = function(password) {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+// Checking validity of the password
+UserSchema.methods.validPassword = function(password) {
+	return bcrypt.compareSync(password, this.password);
+}
 
 var User = mongoose.model("User", UserSchema);
 
