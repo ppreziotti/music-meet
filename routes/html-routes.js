@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
 	});
 	// Profile page route - can only view once logged in
 	app.get('/profile', isLoggedIn, function(req, res) {
-		res.render(profile.ejs, {
+		res.render('profile.ejs', {
 			user: req.user
 		});
 	});

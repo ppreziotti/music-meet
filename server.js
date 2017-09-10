@@ -24,7 +24,11 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 // Passport setup
 require('./config/passport.js')(passport);
-app.use(session({secret: 'musicmeetsecret'}));
+app.use(session({
+	secret: 'musicmeetsecret',
+	resave: true,
+	saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 // Flash messages for login and signup
