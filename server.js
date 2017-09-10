@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 // Passport setup
-// require('./config/passport.js')(passport);
+require('./config/passport.js')(passport);
 app.use(session({secret: 'musicmeetsecret'}));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -50,7 +50,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 // Import the API and HTML routes
-// require('./routes/api-routes.js')(app, passport);
+require('./routes/api-routes.js')(app, passport);
 require('./routes/html-routes.js')(app);
 
 app.listen(PORT, function() {

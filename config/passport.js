@@ -20,7 +20,7 @@ module.exports = function(passport) {
 	},
 	function(req, username, password, done) {
 		process.nextTick(function() {
-			User.findOne({'email': email}, function(err, user) {
+			User.findOne({'username': username}, function(err, user) {
 				if (err) {
 					return done (err);
 				}
@@ -29,7 +29,7 @@ module.exports = function(passport) {
 				}
 				else {
 					var newUser = new User();
-					newUser.email = email;
+					newUser.username = username;
 					newUser.password = newUser.generateHash(password);
 					// Need to add email, location, and favorite artists
 					newUser.save(function(err) {
@@ -40,6 +40,26 @@ module.exports = function(passport) {
 					});
 				}
 			});
+		});
+	}));
+	// Local login
+	passport.use('local-login', new LocalStrategy({
+		usernameField: 'username',
+		passwordField: 'password',
+		passReqToCallback: true
+	},
+	function(req, username, password, done {
+		User.findOne({username: username}, function(err, user) {
+			if (err) {
+				return done (err);
+			}
+			if (!user) {
+				return done(null, false, req.flash('loginMessage', 'User not found.'));
+			}
+			if (!user.validPassword(password)) {
+				return done(null, false, req.flash('loginMessage', 'Incorrect password.'));
+			}
+			return done(null, user);
 		});
 	}));
 };
