@@ -5,24 +5,24 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
 	email: {
 		type: String,
-		// required: true,
+		required: true,
 		unique: true
 	},
 	password: {
 		type: String,
 		required: true
 	},
-	// name: {
-	// 	type: String,
-	// 	required: true
-	// },
+	name: {
+		type: String,
+		required: true
+	},
 	location: {
 		type: String,
-		// required: true
+		required: true
 	},
 	favoriteArtists: {
 		type: Array,
-		// required: true
+		required: true
 	}
 });
 

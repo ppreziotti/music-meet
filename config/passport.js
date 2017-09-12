@@ -31,7 +31,9 @@ module.exports = function(passport) {
 					var newUser = new User();
 					newUser.email = email;
 					newUser.password = newUser.generateHash(password);
-					// Need to add username, location, and favorite artists
+					newUser.name = req.body.name;
+					newUser.location = req.body.location;
+					newUser.favoriteArtists = req.body.artists.split(",");
 					newUser.save(function(err) {
 						if (err) {
 							throw err;
