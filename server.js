@@ -54,8 +54,8 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 // Import the API and HTML routes
-require('./routes/api-routes.js')(app, passport);
-require('./routes/html-routes.js')(app);
+// require('./routes/api-routes.js')(app, passport);
+require('./routes/html-routes.js')(app, passport);
 
 app.listen(PORT, function() {
 	console.log("App listenting on PORT " + PORT + "!");

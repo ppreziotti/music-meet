@@ -3,4 +3,6 @@ $(document).ready(function() {
 	$("#index-subheading").fadeIn(4000);
 	$("#btn-login").fadeIn(5000);
 	$("#btn-signup").fadeIn(5000);
+	$("#welcome").html(`Welcome ${user.name} !`);
 });
+

@@ -16,6 +16,11 @@ var UserSchema = new Schema({
 		type: String,
 		required: true
 	},
+	username: {
+		type: String,
+		required: true,
+		unique: true
+	},
 	location: {
 		type: String,
 		required: true

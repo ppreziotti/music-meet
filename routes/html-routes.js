@@ -22,10 +22,6 @@ module.exports = function(app, passport) {
 			user: req.user
 		});
 	});
-	// Signup page route
-	app.get('/signup', function(req, res) {
-		res.render('signup.ejs', {message: req.flash('signupMessage')});
-	});
 	// Function to determine if a user is logged in or not
 	function isLoggedIn(req, res, next) {
 		// Allow the user to continue if authenticated in the session
@@ -35,4 +31,20 @@ module.exports = function(app, passport) {
 		// Otherwise, redirect to the home page for login
 		res.redirect('/');
 	}
-}
+	// Signup page route
+	app.get('/signup', function(req, res) {
+		res.render('signup.ejs', {message: req.flash('signupMessage')});
+	});
+	// Signup post route
+	app.post('/signup', passport.authenticate('local-signup', {
+		successRedirect: '/profile',
+		failureRedirect: '/signup',
+		failureFlash: true
+	}));
+	// Login post route
+	app.post('/login', passport.authenticate('local-login', {
+		successRedirect: '/profile',
+		failureRedirect: '/login',
+		failureFlash: true
+	}));
+};
