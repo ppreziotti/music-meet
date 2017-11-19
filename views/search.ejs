@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Music Meet</title>
+	<title>Music Meet Search Results</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada" rel="stylesheet">
@@ -13,17 +13,11 @@
 </head>
 <body>
 
-	<div class="container">
-		<h1 id="welcome">Welcome!</h1>
-		<h6><a href="/logout">Logout</a></h6>
-		<h2>Seach for Friends!</h2>
-		<form action="/search" method="post">
-			<div class="form-group">
-				<label for="search" class="search">Search for a friend or location:</label>
-				<input type="text" class="form-control" id="location" name="location" required></input>
-				<button type="submit">Submit</button>
-			</div>
-		</form>
+	<div class="container" id="index-container">
+		<h1>Search Results</h1>
+		<h2>Username: <%= user.username %></h2>
+		<h2>Location: <%= user.location %></h2>
+		<h2>Favorite Artists: <%= user.favoriteArtists %></h2>
 	</div>
 
 	<script type="text/javascript" src="./assets/javascript/script.js"></script>

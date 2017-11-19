@@ -40,7 +40,7 @@ app.set('view engine', 'ejs');
 // Path for static content
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Creating the database logging it if successful
+// Creating the database and logging it if successful
 mongoose.connect('mongodb://localhost/musicMeet', {
 	useMongoClient: true
 }).then(function() {

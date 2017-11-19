@@ -1,3 +1,5 @@
+var User = require('../models/User.js');
+
 module.exports = function(app, passport) {
 	// Main page route
 	app.get('/', function(req, res) {
@@ -47,4 +49,20 @@ module.exports = function(app, passport) {
 		failureRedirect: '/login',
 		failureFlash: true
 	}));
+	// Post route for searching for friends
+	app.post('/search', function(req, res) {
+		User.findOne({location: req.body.location}, function(error, user) {
+			if (error) {
+				res.send(error);
+			}
+			else if (user) {
+				res.render('search', {
+					user: user
+				});
+			}
+			else {
+				res.render('profile');
+			}
+		});
+	});
 };
